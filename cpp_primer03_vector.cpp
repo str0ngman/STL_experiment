@@ -219,3 +219,8 @@ void iterator_types(){
 	string::const_iterator it4;//can read but cant write
 
 }
+
+/*	exe_3_21
+ * 	Redo the first exercise 3.3.3
+ *
+ */
