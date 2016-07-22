@@ -23,9 +23,7 @@ int main(){
  */
 void build_intArray(){
 unsigned cnt = 42;
-constexpr unsigned sz = 42;
-int arr[10]={0};
-int *parr[sz];
+
 string bad[cnt];
 
 //Understand Complicated Array Declarations
@@ -35,8 +33,8 @@ int *ptrs[10];
 //Q:initialize a ref to a array of ten ints
 //int &refs[10] ;//array of reference is pointless, does
 //not hold space, could use pointers instead
-int (*Parray)[10] = &arr;
-int (&arrRef)[10] = arr;
+/*int (*Parray)[10] = &arr;
+int (&arrRef)[10] = arr;*/
 
 /* by default ,
  *

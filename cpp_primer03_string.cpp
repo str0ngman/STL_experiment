@@ -6,6 +6,7 @@
  */
 #include<iostream>
 #include<string>
+#include<cstring>
 using namespace std;
 
 void excercise_3_2(int);

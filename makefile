@@ -11,29 +11,17 @@ FLAGS= -std=c++11
 
 all:./bin/03_string \
 	./bin/03_vector \
+	./bin/03_array \
 	./bin/03_cStyle_array \
+	./bin/09_seqCont	\
+	
+./bin/%: ./temp/%.o
+	$(CC) $(LIBDIR) -o $(@) $(^) $(LIBS) $(FLAGS)
 
-./bin/03_string: ./object/03_string.o
-	$(CC) $(LIBDIR) -o ./bin/03_string ./object/03_string.o $(LIBS) $(FLAGS)
-./object/03_string.o: ./src/cpp_primer03_string.cpp
-	$(CC) $(INCDIR) $(CFLAGS2) $(FLAGS) -o ./object/03_string.o  ./src/cpp_primer03_string.cpp 
-
-./bin/03_vector: ./object/03_vector.o
-	$(CC) $(LIBDIR) -o ./bin/03_vector ./object/03_vector.o $(LIBS) $(FLAGS)
-./object/03_vector.o: ./src/cpp_primer03_vector.cpp
-	$(CC) $(INCDIR) $(CFLAGS2) $(FLAGS) -o ./object/03_vector.o  ./src/cpp_primer03_vector.cpp 
-
-./bin/03_array: ./object/03_array.o
-	$(CC) $(LIBDIR) -o ./bin/03_array ./object/03_array.o $(LIBS) $(FLAGS)
-./object/03_array.o: ./src/cpp_primer03_array.cpp
-	$(CC) $(INCDIR) $(CFLAGS2) $(FLAGS) -o ./object/03_array.o  ./src/cpp_primer03_array.cpp
-
-./bin/03_cStyle_array: ./object/03_cStyle_array.o
-	$(CC) $(LIBDIR) -o ./bin/03_cStyle_array ./object/03_cStyle_array.o $(LIBS) $(FLAGS)
-./object/03_cStyle_array.o: ./src/cpp_primer03_cStyle_array.cpp
-	$(CC) $(INCDIR) $(CFLAGS2) $(FLAGS) -o ./object/03_cStyle_array.o  ./src/cpp_primer03_cStyle_array.cpp
-
-
+./temp/%.o :./src/%.cpp
+	$(CC) $(INCDIR) $(CFLAGS2) $(FLAGS) -o $(@) $(^)
+	
+.PHONEY: clean
 
 clean:
-	rm -f ./object/* ./bin/* 
+	rm -f ./temp/* ./bin/* 
