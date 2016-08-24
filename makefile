@@ -9,10 +9,7 @@ INCDIR=
 FLAGS= -std=c++11
 
 
-all:./bin/03_string \
-	./bin/03_vector \
-	./bin/03_array \
-	./bin/03_cStyle_array \
+all:./bin/cpp_primer03_string \
 	./bin/09_seqCont	\
 	
 ./bin/%: ./temp/%.o
